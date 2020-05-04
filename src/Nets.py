@@ -258,13 +258,14 @@ class LitModel(pl.LightningModule):
 
     def test_step(self,batch,batch_idx):
         x, y = batch
+        x, y = x.half(), y.half()
         out = self(x)
         out = torch.sigmoid(out)
         self.seg_Metric.addBatch(out, y)
         acc = self.seg_Metric.pixelAccuracy()
         mIoU = self.seg_Metric.meanIntersectionOverUnion()
 
-        ximg = x*0.5+0.5
+        ximg = x.float()*0.5+0.5
         lblimg = y.repeat(1,3,1,1).float()
         # outimg = (out>0.5).type_as(ximg).repeat(1,3,1,1) #输出的3通道预测图片
 
