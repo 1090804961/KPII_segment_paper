@@ -7,11 +7,11 @@ from pytorch_lightning import loggers
 import time
 import torch
 from torch import jit
-def totaltime(fn):
-    st = time.time()
-    fn()
-    endt = time.time()
-    return endt - st
+# def totaltime(fn):
+#     st = time.time()
+#     fn()
+#     endt = time.time()
+#     return endt - st
 
 """.test() is not stable yet on TPUs. We’re working on getting around the multiprocessing challenges."""
 PATH = './logs/tb_unet/version_1/checkpoints/epoch=19.ckpt'
