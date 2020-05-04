@@ -1,6 +1,11 @@
 基于 attention UNet 的缺陷检测
 
-框架：pytorch ，pytorch lightning
+使用的框架：
+pytorch 
+torchvision
+pytorch的封装pytorch lightning
+apex 混合精度训练框架
+
 
 检测对象：纸碗
 缺陷：类似于脏污
